@@ -32,6 +32,10 @@ public class SlavaHashTable<K, V> {
         if (key == null) {
             throw new IllegalArgumentException("demo");
         }
+        if (value == null) {
+            throw new IllegalArgumentException("demo");
+
+        }
         // find the index by calling the objects hashCode
         int index = key.hashCode() % size;
 
@@ -54,18 +58,23 @@ public class SlavaHashTable<K, V> {
             throw new IllegalArgumentException("demo");
         }
 
+        if (!keys.contains(key)){
+            return null;
+        }
+
         int index = key.hashCode() % size;
         // linear probe to find the item
+
+        if (index >= size){
+            return null;
+        }
 
         while (!keys.get(index).equals(key)) {
             index++;
             if (index >= size) {
                 index = 0;
             }
-        }/*
-        if (values.get(index) == null){
-            return null;
-        }*/
+        }
         return values.get(index);
     }
 }
