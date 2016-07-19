@@ -42,8 +42,13 @@ public class SlavaHashTable<K, V> {
         // linear probe to find the next open space
         while (keys.get(index) != null) {
             index++;
-            if (index >= size) {
+            if (index > size) {
                 index = 0;
+            }
+            if (index == size){
+                values.add(null);
+                keys.add(null);
+                size++;
             }
         }
 

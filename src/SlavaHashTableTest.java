@@ -12,12 +12,14 @@ public class SlavaHashTableTest {
 
     @Test
     public void insert() throws Exception {
-        SlavaHashTable<Integer, String > list = new SlavaHashTable<>(7);
+        SlavaHashTable<Integer, String > list = new SlavaHashTable<>(4);
         list.insert(15646, "One");
         list.insert(14565, "Two");
         list.insert(11354, "Three");
         list.insert(14856, "");
         list.insert(19413, "Four");
+        list.insert(19423, "Four2");
+        list.insert(19513, "Four3");
         assertEquals("One", list.lookup(15646));
         assertEquals("", list.lookup(14856));
         assertEquals(null, list.lookup(14857));
